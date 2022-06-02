@@ -9,12 +9,43 @@ import java.util.Scanner;
 public class Main {
     private static final DecimalFormat df = new DecimalFormat("0.00");// para limitar el precio final a solo 2 decimales
 
+
+    public static String totalIncidencias(String datos2017){
+        ArrayList<String> todosAnosFuego = new ArrayList<String>();
+        ArrayList<String> todosAnosConstr = new ArrayList<String>();
+        ArrayList<String> todosAnosSalva = new ArrayList<String>();
+        ArrayList<String> todosAnosAgua = new ArrayList<String>();
+        ArrayList<String> todosAnosDiversos = new ArrayList<String>();
+        ArrayList<String> todosAnosSinInterv = new ArrayList<String>();
+        ArrayList<String> todosAnosServVarios = new ArrayList<String>();
+        String parte[] = datos2017.split(" ");
+        todosAnosFuego.add(parte[0]);
+        todosAnosConstr.add(parte[1]);
+        todosAnosSalva.add(parte[2]);
+        todosAnosAgua.add(parte[3]);
+        todosAnosDiversos.add(parte[4]);
+        todosAnosSinInterv.add(parte[5]);
+        todosAnosServVarios.add(parte[6]);
+
+        double totalFuego = sumaIncidencias(todosAnosFuego);
+        double totalConstr = sumaIncidencias(todosAnosConstr);
+        double totalSalva = sumaIncidencias(todosAnosSalva);
+        double totalAgua = sumaIncidencias(todosAnosAgua);
+        double totalDiversos = sumaIncidencias(todosAnosDiversos);
+        double totalSinInterv = sumaIncidencias(todosAnosSinInterv);
+        double totalServVarios = sumaIncidencias(todosAnosServVarios);
+
+        //guardamos todos estos en un String y lo devolvemos
+        String resultado = String.valueOf(totalFuego) + String.valueOf(totalConstr)+String.valueOf(totalSalva)+String.valueOf(totalAgua)+String.valueOf(totalDiversos)+String.valueOf(totalSinInterv)+String.valueOf(totalServVarios);
+        return resultado;
+
+    }
     //#################################################################
     //funcion que calcula la suma de un arraylist de valores(incidencias)
     public static double sumaIncidencias(ArrayList lista) {
         double sum = 0;
         try {
-            for (int i = 0; i < lista.size(); i++)
+            for (int i = 1; i < lista.size(); i++)// empiezo en la segunda posicion porque la primera es el titulo
                 sum += Double.valueOf((String) lista.get(i));
 
         } catch (Exception e) {
@@ -26,15 +57,13 @@ public class Main {
 
     //#################################################################
     //funcion que lee los datos de un archivo y guarda cada columna en un arraylist, despues suma todos los valores
-    public static void leerDatos(String nombreArchivo) throws FileNotFoundException {
+    public static String leerDatos(String nombreArchivo) throws FileNotFoundException {
         Scanner lector = new Scanner(System.in);
+        String resultado = "";
         try {
             String rutaRelativa = "Bomberos" + File.separator + nombreArchivo;
             String pwd = System.getProperty("user.dir");//ruta directorio actual de trabajo
             String rutaAbsoluta = pwd + File.separator + rutaRelativa;// File.separator funciona para Windows y Linux
-
-            File ficheroALeer = new File(rutaAbsoluta);
-            Scanner sc = new Scanner(ficheroALeer);//leemos el fichero
 
             ArrayList<String> listaFuego = new ArrayList<String>();
             ArrayList<String> listaConstr = new ArrayList<String>();
@@ -44,20 +73,28 @@ public class Main {
             ArrayList<String> listaSinInterv = new ArrayList<String>();
             ArrayList<String> listaServVarios = new ArrayList<String>();
 
+            File ficheroALeer = new File(rutaAbsoluta);
+            Scanner sc = new Scanner(ficheroALeer);//leemos el fichero
 
-            do {//vamos a leer el documento linea por linea
-                String linea = sc.nextLine();
-                String parte[] = linea.split(";");//dividimos cada linea en 3 partes separadas por ;
-                //almacenamos todas las incidencias en arraylists
-                listaFuego.add(parte[3]);
-                listaConstr.add(parte[4]);
-                listaSalva.add(parte[5]);
-                listaAgua.add(parte[6]);
-                listaDiversos.add(parte[7]);
-                listaSinInterv.add(parte[8]);
-                listaServVarios.add(parte[9]);
+
+            while (sc.hasNextLine()) {
+                //vamos a leer el documento linea por linea
+                try {
+                    String linea = sc.nextLine();
+                    String parte[] = linea.split(";");//dividimos cada linea en partes separadas por ;
+                    //almacenamos todas las incidencias en arraylists
+                    listaFuego.add(parte[3]);
+                    listaConstr.add(parte[4]);
+                    listaSalva.add(parte[5]);
+                    listaAgua.add(parte[6]);
+                    listaDiversos.add(parte[7]);
+                    listaSinInterv.add(parte[8]);
+                    listaServVarios.add(parte[9]);
+                } catch (Exception e) {//manejamos excepciones
+                    e.printStackTrace();
+                }
             }
-            while (sc.hasNextLine());
+
             sc.close();
 
             double totalFuego = sumaIncidencias(listaFuego);
@@ -68,15 +105,15 @@ public class Main {
             double totalSinInterv = sumaIncidencias(listaSinInterv);
             double totalServVarios = sumaIncidencias(listaServVarios);
 
-            //guardamos todos estos en un array y lo devolvemos
+            //guardamos todos estos en un String y lo devolvemos
+            resultado = String.valueOf(totalFuego) + String.valueOf(totalConstr)+String.valueOf(totalSalva)+String.valueOf(totalAgua)+String.valueOf(totalDiversos)+String.valueOf(totalSinInterv)+String.valueOf(totalServVarios);
 
-
-        } catch (Exception e) {//manejamos excepciones
-            e.printStackTrace();
+        } catch (Exception ex) {//manejamos excepciones
+            ex.printStackTrace();
         } finally {
             lector.close();//cerramos el scanner
         }
-
+            return resultado;
     }
 
     //#################################################################
@@ -91,9 +128,33 @@ public class Main {
             String archivo2021 = "2021.csv";
             String archivo2022 = "2022.csv";
 
-            
+
+            ArrayList<String> todosAnosFuego = new ArrayList<String>();
+            ArrayList<String> todosAnosConstr = new ArrayList<String>();
+            ArrayList<String> todosAnosSalva = new ArrayList<String>();
+            ArrayList<String> todosAnosAgua = new ArrayList<String>();
+            ArrayList<String> todosAnosDiversos = new ArrayList<String>();
+            ArrayList<String> todosAnosSinInterv = new ArrayList<String>();
+            ArrayList<String> todosAnosServVarios = new ArrayList<String>();
 
 
+            String datos2017 = leerDatos(archivo2017);
+            String datos2018 = leerDatos(archivo2018);
+            String datos2019 = leerDatos(archivo2019);
+            String datos2020 = leerDatos(archivo2020);
+            String datos2021 = leerDatos(archivo2021);
+            String datos2022 = leerDatos(archivo2022);
+
+
+
+            String parte[] = datos2017.split(" ");
+            todosAnosFuego.add(parte[0]);
+            todosAnosConstr.add(parte[1]);
+            todosAnosSalva.add(parte[2]);
+            todosAnosAgua.add(parte[3]);
+            todosAnosDiversos.add(parte[4]);
+            todosAnosSinInterv.add(parte[5]);
+            todosAnosServVarios.add(parte[6]);
 
 
 

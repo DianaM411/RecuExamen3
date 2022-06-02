@@ -2,23 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="db284f62-4189-4794-8eb0-c97b17d0411e" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../EjercicioFicheros/.idea/description.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EjercicioFicheros/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EjercicioFicheros/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EjercicioFicheros/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EjercicioFicheros/.idea/project-template.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EjercicioFicheros/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EjercicioFicheros/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EjercicioFicheros/EjercicioFicheros.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EjercicioFicheros/src/com/diana/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ejercicioGrafica/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ejercicioGrafica/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ejercicioGrafica/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ejercicioGrafica/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ejercicioGrafica/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ejercicioGrafica/ejercicioGrafica.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ejercicioGrafica/src/interfazGrafica.form" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ejercicioGrafica/src/interfazGrafica.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/diana/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/diana/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,6 +88,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -114,5 +104,15 @@
       <updated>1654159337955</updated>
     </task>
     <servers />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.util.NoSuchElementException" package="java.util" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
