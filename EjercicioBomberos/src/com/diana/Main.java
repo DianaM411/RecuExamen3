@@ -9,8 +9,7 @@ import java.util.Scanner;
 public class Main {
     private static final DecimalFormat df = new DecimalFormat("0.00");// para limitar el precio final a solo 2 decimales
 
-
-    public static String totalIncidencias(String datos2017){
+    public static String totalIncidenciasPorAno(String datos){
         ArrayList<String> todosAnosFuego = new ArrayList<String>();
         ArrayList<String> todosAnosConstr = new ArrayList<String>();
         ArrayList<String> todosAnosSalva = new ArrayList<String>();
@@ -18,7 +17,7 @@ public class Main {
         ArrayList<String> todosAnosDiversos = new ArrayList<String>();
         ArrayList<String> todosAnosSinInterv = new ArrayList<String>();
         ArrayList<String> todosAnosServVarios = new ArrayList<String>();
-        String parte[] = datos2017.split(" ");
+        String parte[] = datos.split(" ");
         todosAnosFuego.add(parte[0]);
         todosAnosConstr.add(parte[1]);
         todosAnosSalva.add(parte[2]);
@@ -120,7 +119,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner lector = new Scanner(System.in);
         try {
-            //declaramos las variables
+            //nombres de archivos
             String archivo2017 = "2017.csv";
             String archivo2018 = "2018.csv";
             String archivo2019 = "2019.csv";
@@ -137,7 +136,7 @@ public class Main {
             ArrayList<String> todosAnosSinInterv = new ArrayList<String>();
             ArrayList<String> todosAnosServVarios = new ArrayList<String>();
 
-
+            //Cada string contiene el numero total de cada tipo de incidencia del ano
             String datos2017 = leerDatos(archivo2017);
             String datos2018 = leerDatos(archivo2018);
             String datos2019 = leerDatos(archivo2019);
@@ -145,8 +144,7 @@ public class Main {
             String datos2021 = leerDatos(archivo2021);
             String datos2022 = leerDatos(archivo2022);
 
-
-
+            //dividimos el String del 2017
             String parte[] = datos2017.split(" ");
             todosAnosFuego.add(parte[0]);
             todosAnosConstr.add(parte[1]);
@@ -155,15 +153,6 @@ public class Main {
             todosAnosDiversos.add(parte[4]);
             todosAnosSinInterv.add(parte[5]);
             todosAnosServVarios.add(parte[6]);
-
-
-
-
-
-
-
-
-
 
         } catch (Exception e) {//manejamos excepciones
             e.printStackTrace();
